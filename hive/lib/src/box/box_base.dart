@@ -21,6 +21,9 @@ class BoxEvent {
     }
     return false;
   }
+
+  @override
+  int get hashCode => runtimeType.hashCode ^ key.hashCode ^ value.hashCode;
 }
 
 /// Boxes contain all of your data. In the browser, each box has its own
@@ -124,4 +127,7 @@ abstract class BoxBase<E> {
   ///
   /// In the browser, the IndexedDB database is being removed.
   Future<void> deleteFromDisk();
+
+  /// Flushes all pending changes of the box to disk.
+  Future<void> flush();
 }
