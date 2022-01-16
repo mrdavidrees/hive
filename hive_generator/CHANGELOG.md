@@ -1,3 +1,33 @@
+## 1.1.2
+
+- Updated `analyzer` version constraints
+
+## 1.1.1
+
+- Updated dependency versions
+
+## 1.1.0
+
+- Fixes empty class generates adapter with warnings - [#638](https://github.com/hivedb/hive/issues/638)
+- Default value support for class type adapter generators - [#625](https://github.com/hivedb/hive/issues/625)
+
+## 1.0.1
+
+- Fixed dependencies for null-safety compatibility
+
+## 1.0.0
+
+- Stable null-safety version
+
+## 0.9.0-nullsafety.1
+
+- Enum nullsafety support - [#555](https://github.com/hivedb/hive/issues/555)
+
+## 0.9.0-nullsafety.0
+
+- Support generating null-safe code for libraries using Dart >= 2.12.0
+- Does not generate incompatible code for legacy libraries, so this is **NOT** a breaking change.
+
 ## 0.8.2
 - Inheritance support. Fixes [#442](https://github.com/hivedb/hive/issues/442)
 - Support for both older and newer analyzer versions

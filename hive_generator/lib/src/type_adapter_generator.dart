@@ -6,10 +6,6 @@ import 'package:hive_generator/src/class_builder.dart';
 import 'package:hive_generator/src/enum_builder.dart';
 import 'package:hive_generator/src/helper.dart';
 import 'package:source_gen/source_gen.dart';
-import 'package:hive/hive.dart';
-import 'builder.dart' as b;
-
-import 'enum_class_builder.dart';
 
 class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
   /// The enum class type checker. It isn't from runtime because otherwise we
@@ -172,10 +168,8 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
 
   void verifyFieldIndices(List<AdapterField> fields) {
     for (var field in fields) {
-      check(
-        field.index >= 0 || field.index <= 255,
-        'Field numbers can only be in the range 0-255.',
-      );
+      check(field.index >= 0 && field.index <= 255,
+          'Field numbers can only be in the range 0-255.');
 
       for (var otherField in fields) {
         if (otherField == field) continue;

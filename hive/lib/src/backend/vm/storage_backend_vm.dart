@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:hive/hive.dart';
-import 'package:hive/src/backend/vm/read_write_sync.dart';
 import 'package:hive/src/backend/storage_backend.dart';
+import 'package:hive/src/backend/vm/read_write_sync.dart';
 import 'package:hive/src/binary/binary_reader_impl.dart';
 import 'package:hive/src/binary/binary_writer_impl.dart';
 import 'package:hive/src/binary/frame.dart';
@@ -224,6 +224,13 @@ class StorageBackendVm extends StorageBackend {
     return _sync.syncReadWrite(() async {
       await _closeInternal();
       await _file.delete();
+    });
+  }
+
+  @override
+  Future<void> flush() {
+    return _sync.syncWrite(() async {
+      await writeRaf.flush();
     });
   }
 }
