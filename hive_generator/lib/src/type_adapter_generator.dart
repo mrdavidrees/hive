@@ -6,6 +6,9 @@ import 'package:hive_generator/src/class_builder.dart';
 import 'package:hive_generator/src/enum_builder.dart';
 import 'package:hive_generator/src/helper.dart';
 import 'package:source_gen/source_gen.dart';
+import 'builder.dart' as b;
+
+import 'enum_class_builder.dart';
 
 class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
   /// The enum class type checker. It isn't from runtime because otherwise we
